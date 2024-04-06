@@ -1,0 +1,32 @@
+********Ex1**************
+
+name = input()
+print (f"Hello my dear {name}" )
+f stay for formatted string and is necessary to output variable
+input() take string as input so you need to cast the type variable using int(input()) 
+or float(input()) for a number
+ 
+what is the difference between sys.argv[] and input() ?  
+
+inpu() take single command and is usefull for interacting with the code if required for proceed, while
+sis.argv[n>=1] is usefull from the command line to parse multiple arguments in the program. n=0 is a
+special index where is stored the program name and can be accessed using -c command 
+
+ex python -c ......
+
+--------------------------------------------------------------------------------
+
+argv is the list of arguments passed to the command that invoked the script. So for example, 
+if you invoke a script through python .\myscript a b c x=1, it will contain the path to myscript.py,
+a, b, c, and x=1. (The 0th position contains special values for python -c and the REPL.) 
+Once the command is executed, this data is set and cannot be modified or amended by outside programs.
+
+input reads from the standard input stream, or as it's more often called, stdin. 
+This is an interactive data stream. Its typical source is user input in the command line window 
+where the script was invoked, but it can be connected to any file-like source. For example, 
+you can connect tell the system to read the input from a file: python .\myscript.py < inputfile.txt, 
+or pipe it from another program: cat .\inputfile.txt | python .\myscript.py. Generally speaking, 
+input is what you use if you need interactive input from the user, and the user has the option 
+of automating the interaction by piping input from a text file. 
+If you need streamed data from some other source, you would access stdin via some other more 
+direct means.
