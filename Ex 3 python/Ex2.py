@@ -27,6 +27,7 @@ def main():
     
         xMax = np.max(sample)
         xMin = np.min(sample)
+    
     print(positive)
     print('Maximum of sample is: ' , xMax, ' and Minimum of sample is: ', xMin)
 
