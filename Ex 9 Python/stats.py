@@ -30,13 +30,14 @@ class stats:
          return self.sigma(bessel)/sqrt(self.N)
     
     def skew(self,bessel = False):
-        ske = sum(self.sample - self.mean())**3/(self.sigma()**3*self.N)
-        if bessel: ske = sum(self.sample - self.mean())**3/(self.sigma(bessel)**3*(self.N-1))
+
+        ske = sum([x - self.mean() for x in self.sample])**3/(self.sigma()**3*self.N)
+        if bessel: ske = sum([x - self.mean() for x in self.sample])**3/(self.sigma(bessel)**3*(self.N-1))
         return ske
     
     def kurt(self, bessel = False):
-        kur = sum(self.sample - self.mean())**4/(self.sigma(bessel)**4*self.N)-3
-        if bessel : sum(self.sample - self.mean())**4/(self.sigma(bessel)**4*(self.N-1))-3
+        kur = sum([x - self.mean() for x in self.sample])**4/(self.sigma(bessel)**4*self.N)-3
+        if bessel : sum([x - self.mean() for x in self.sample])**4/(self.sigma(bessel)**4*(self.N-1))-3
         return kur 
     
     def insert(self,x):

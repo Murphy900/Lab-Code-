@@ -9,7 +9,8 @@ from numpy import abs
 # Excluded the existence of at least a zero in the bracket [x1,x2] the algorithm perform a search outward the brackets finding the extrema in which at least a zero exist.
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-def zoutward(n,x1,x2,f):
+def zoutward(n, #is the the number of sectioning of the interval given as argument
+             x1,x2,f):
     
     if isfunction(f) != True :
         raise TypeError("f must be a function of one variable")
