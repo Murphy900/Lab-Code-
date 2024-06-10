@@ -10,7 +10,6 @@ import random
 def rand_range (xMin,xMax):
     return xMin + random.random() * (xMax-xMin)
 
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #This function generates N random numbers from a seed in an interval (xMin,xMax). The numbers follows a uniform distribution
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -132,8 +131,7 @@ def generateTCL_pdf(pdf,xmin,xmax,ymax,N_sum = 10,sample_size = 10,seed = 0.):
       
       randlist.append(randTCL_pdf(pdf,xmin,xmax,ymax,sample_size))
 
-    return randlist            
-
+    return randlist                        
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #Generate a pseudo random number x that follows a pdf f. The method use the Try and Catch Algorithm
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

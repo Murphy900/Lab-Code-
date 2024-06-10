@@ -1,4 +1,4 @@
-from math import prod,log
+from math import log
 import bisection as bs
 from goldensearch import goldenratioMax
 

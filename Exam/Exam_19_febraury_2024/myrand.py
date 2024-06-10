@@ -12,7 +12,7 @@ def rand_range (xMin,xMax):
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#This function generates N random numbers from a seed in an interval (xMin,xMax). The numbers follows a  normal distribution
+#This function generates N random numbers from a seed in an interval (xMin,xMax). The numbers follows a uniform distribution
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 def generate_range(xMin, xMax,N,seed = 0.):
@@ -106,7 +106,34 @@ def generate_TCL(xMin,xMax,N, seed = 0.):
       randlist.append(rand_TCL(xMin,xMax))
 
    return randlist 
-            
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Generate pseduo-random numbers using Cenetral Limit Theorem for a pdf
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+def randTCL_pdf(pdf,xmin,xmax,ymax,N_sum = 10):
+    y = 0.
+    for i in range(N_sum):
+       y = y + rand_TAC(pdf,xmin,xmax,ymax)[0] 
+    z = y/N_sum
+    return z
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# this function generate from a pdf  N random numbers that follows a Gaussian Distribution when N get bigger 
+# it was set N_sum = 10 for making sample set of ten pseudo random numbers to evaluate sample mean 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+def generateTCL_pdf(pdf,xmin,xmax,ymax,N_sum = 10,sample_size = 10,seed = 0.):
+
+    if seed != 0. : random.seed(float(seed))
+    randlist = []
+   
+    for j in range(N_sum):
+      
+      randlist.append(randTCL_pdf(pdf,xmin,xmax,ymax,sample_size))
+
+    return randlist            
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #Generate a pseudo random number x that follows a pdf f. The method use the Try and Catch Algorithm
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
